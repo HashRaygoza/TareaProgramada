@@ -25,6 +25,14 @@ public class Tarea extends TimerTask {
     public void run() {
         LOGGER.log(Level.INFO, "Numero de ejecución {0}", contador);
         contador++;
+        
+        try {
+            // Con esto hacemos que la funcion tarde *mas* en ejecutarse que
+            // el periodo especificado
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            LOGGER.log(Level.SEVERE, "Error de interrupcion");
+        }
     }
     
 }
